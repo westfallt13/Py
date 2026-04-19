@@ -6,8 +6,7 @@ from dotenv import load_dotenv
 # Load environment variables from the .env file. Like an adult.
 load_dotenv(override=True)
 
-# Configuration for your AWS RDS PostgreSQL database.
-# Using os.environ instead of get() so it crashes LOUDLY if you forget your .env file
+# Configuration for PostgreSQL connection.
 DB_HOST = os.environ["DB_HOST"]
 DB_NAME = os.environ["DB_NAME"]
 DB_USER = os.environ["DB_USER"]
@@ -28,7 +27,7 @@ def initialize_database():
             sslmode='require'
         )
 
-        # A cursor is your workhorse. It actually executes the SQL.
+        # Cursor is the workhorse for executing SQL commands.
         cursor = connection.cursor()
         
         #Schema
