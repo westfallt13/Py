@@ -47,6 +47,7 @@ def add_person():
         
         return jsonify({"message": "Person added successfully!"}), 201
 
+
     except (Exception, Error) as error:
         print("Error inserting data:", error)
         return jsonify({"error": "Failed to add person to database"}), 500
